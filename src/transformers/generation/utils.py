@@ -932,7 +932,7 @@ class GenerationMixin:
         self,
         generation_config: GenerationConfig,
         stopping_criteria: Optional[StoppingCriteriaList],
-        tokenizer: Optional["PreTrainedTokenizerBase"],
+        tokenizer: Optional["PreTrainedTokenizerBase"] = None,
         **kwargs,
     ) -> StoppingCriteriaList:
         criteria = StoppingCriteriaList()
