@@ -48,7 +48,6 @@ if is_torch_available():
     from torch import nn
 
     from transformers import Blip2ForConditionalGeneration, Blip2Model, Blip2VisionModel
-    from transformers.models.blip_2.modeling_blip_2 import BLIP_2_PRETRAINED_MODEL_ARCHIVE_LIST
 
 
 if is_vision_available():
@@ -216,9 +215,9 @@ class Blip2VisionModelTest(ModelTesterMixin, unittest.TestCase):
 
     @slow
     def test_model_from_pretrained(self):
-        for model_name in BLIP_2_PRETRAINED_MODEL_ARCHIVE_LIST[:1]:
-            model = Blip2VisionModel.from_pretrained(model_name)
-            self.assertIsNotNone(model)
+        model_name = "Salesforce/blip2-opt-2.7b"
+        model = Blip2VisionModel.from_pretrained(model_name)
+        self.assertIsNotNone(model)
 
 
 class Blip2QFormerModelTester:
@@ -502,9 +501,9 @@ class Blip2ForConditionalGenerationDecoderOnlyTest(ModelTesterMixin, unittest.Te
 
     @slow
     def test_model_from_pretrained(self):
-        for model_name in BLIP_2_PRETRAINED_MODEL_ARCHIVE_LIST:
-            model = Blip2ForConditionalGeneration.from_pretrained(model_name)
-            self.assertIsNotNone(model)
+        model_name = "Salesforce/blip2-opt-2.7b"
+        model = Blip2ForConditionalGeneration.from_pretrained(model_name)
+        self.assertIsNotNone(model)
 
 
 # this class is based on `T5ModelTester` found in tests/models/t5/test_modeling_t5.py
@@ -763,9 +762,9 @@ class Blip2ModelTest(ModelTesterMixin, PipelineTesterMixin, unittest.TestCase):
 
     @slow
     def test_model_from_pretrained(self):
-        for model_name in BLIP_2_PRETRAINED_MODEL_ARCHIVE_LIST:
-            model = Blip2ForConditionalGeneration.from_pretrained(model_name)
-            self.assertIsNotNone(model)
+        model_name = "Salesforce/blip2-opt-2.7b"
+        model = Blip2ForConditionalGeneration.from_pretrained(model_name)
+        self.assertIsNotNone(model)
 
     def test_get_text_features(self):
         config, _ = self.model_tester.prepare_config_and_inputs_for_common()
